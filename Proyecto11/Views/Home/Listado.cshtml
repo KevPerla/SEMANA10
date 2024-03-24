@@ -1,0 +1,49 @@
+﻿@model List<Proyecto11.Models.ValoracionModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Valoraciones</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center">Listado</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Valoración a publicacion</th>
+                    <th>Asignaturas estudiadas</th>
+                    <th>Alineación Ideal</th>
+                    <th>Mejoras del Curso</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var valoracion in Model)
+                {
+                    <tr>
+                        <td>@valoracion.Nombre</td>
+                        <td>@valoracion.Apellido</td>
+                        <td>@valoracion.Email</td>
+                        <td>@valoracion.Valoracion</td>
+                        <td>@string.Join(", ", valoracion.Asignaturas)</td> 
+                        <td>@valoracion.Alineacion</td>
+                        <td>@valoracion.MejorasCurso</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="text-center">
+            @Html.ActionLink("Llenar otro formulario", "Index", null, new { @class = "btn btn-success" }) 
+        </div>
+    </div>
+</body>
+</html>

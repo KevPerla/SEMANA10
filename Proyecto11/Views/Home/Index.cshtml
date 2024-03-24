@@ -1,0 +1,89 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                text-align: right;
+                padding-right: 15px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center">Formulario</h3>
+        @using (Html.BeginForm("Enviar", "Home", FormMethod.Post, new { @class = "needs-validation", novalidate = "true" }))
+        {
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="Nombre" class="col-sm-4 col-form-label">Escribe tu nombre:</label>
+                        <div class="col-sm-8">
+                            @Html.TextBox("Nombre", null, new { @class = "form-control", placeholder = "Nombre", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Apellido" class="col-sm-4 col-form-label ">Escribe tu apellido:</label>
+                        <div class="col-sm-8">
+                            @Html.TextBox("Apellido", null, new { @class = "form-control", placeholder = "Apellido", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Email" class="col-sm-4 col-form-label">Escribe tu email:</label>
+                        <div class="col-sm-8">
+                            @Html.TextBox("Email", null, new { @class = "form-control", placeholder = "Email", required = "required", type = "email" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Valoracion">¿Qué valoración le das a la publicación?</label>
+                        <div>
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                <label class="mr-2">
+                                    <input type="radio" name="Valoracion" value="@i" required="required" />
+                                    @i
+                                </label>
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Qué asignatura has estudiado?</label>
+                        <div>
+                            <label class="mr-2">
+                                <input type="checkbox" name="Asignatura" value="HTML" />
+                                HTML
+                            </label>
+                            <label class="mr-2">
+                                <input type="checkbox" name="Asignatura" value="CSS" />
+                                CSS
+                            </label>
+                            <label class="mr-2">
+                                <input type="checkbox" name="Asignatura" value="JavaScript" />
+                                JavaScript
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Alineacion" class="text-right">Selecciona tu alineación ideal:</label>
+                        <textarea class="form-control" name="Alineacion" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="Mejoras" class="text-right">¿Qué mejorarías de este curso?</label>
+                        <textarea class="form-control" name="MejorasCurso" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dark btn-block">Enviar</button>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

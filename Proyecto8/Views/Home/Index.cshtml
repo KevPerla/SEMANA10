@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .link-item {
+            display: block;
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            .link-item:hover {
+                background-color: #0056b3;
+                color: #fff;
+            }
+
+        hr {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Página principal</h1>
+        <a href="@Url.Action("Listado", "Clientes")" class="link-item">Listado de clientes</a>
+        <a href="@Url.Action("Alta", "Clientes")" class="link-item">Alta de clientes</a>
+        <hr />
+        <a href="@Url.Action("Listado", "Proveedores")" class="link-item">Listado de proveedores</a>
+        <a href="@Url.Action("Alta", "Proveedores")" class="link-item">Alta de proveedores</a>
+    </div>
+</body>
+</html>

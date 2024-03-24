@@ -1,0 +1,40 @@
+﻿@model List<Proyecto10.Models.ComentarioModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Comentarios</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center">Listado de Comentarios</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Título</th>
+                    <th>Comentario</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var comentario in Model)
+                {
+                    <tr>
+                        <td>@comentario.Nombre</td>
+                        <td>@comentario.Email</td>
+                        <td>@comentario.Titulo</td>
+                        <td>@comentario.Comentario</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a href="@Url.Action("Index", "Comentario")" class="btn btn-primary mt-3">Volver al Formulario</a>
+    </div>
+</body>
+</html>
